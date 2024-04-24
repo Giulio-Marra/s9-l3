@@ -1,0 +1,14 @@
+body{
+    background-color: rgb(173, 173, 175);
+}
+.cardBody{
+    height: 600px;
+}
+.cardImg{
+    height: 400px;
+    object-fit: cover;
+}
+.stickyContainer{
+    margin-top: 60px;
+    z-index: 999; 
+}
