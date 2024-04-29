@@ -12,3 +12,7 @@ body{
     margin-top: 60px;
     z-index: 999; 
 }
+.selectedCard {
+    border: 1px solid red;
+}
+  
