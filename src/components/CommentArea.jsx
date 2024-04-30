@@ -6,11 +6,13 @@ class CommentArea extends Component {
   };
 
   componentDidMount() {
-    this.fetchComments();
+    if (this.props.id) {
+      this.fetchComments(this.props.id);
+    }
   }
 
-  fetchComments = () => {
-    fetch("https://striveschool-api.herokuapp.com/api/comments/0786966246", {
+  fetchComments = (id) => {
+    fetch("https://striveschool-api.herokuapp.com/api/comments/" + id, {
       method: "GET",
       headers: {
         Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjE4ZTY1NjdmMzA0NjAwMWFlNTlmNWQiLCJpYXQiOjE3MTQzOTM3NTEsImV4cCI6MTcxNTYwMzM1MX0.BZScmk1xLS-gmEUgZ4nSMGnpJHOfvx3o18CJiR6A040`,
@@ -19,11 +21,13 @@ class CommentArea extends Component {
     })
       .then((response) => {
         if (!response.ok) {
-          throw new Error("error");
+          throw new Error("Error fetching comments");
         }
         return response.json();
       })
-      .then((data) => console.log(data))
+      .then((data) => {
+        this.setState({ comments: data });
+      })
       .catch((error) => console.error("Error fetching comments:", error));
   };
 

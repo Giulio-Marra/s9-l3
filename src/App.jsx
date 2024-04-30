@@ -5,6 +5,7 @@ import Welcome from "./components/Welcome";
 import AllTheBooks from "./components/AllTheBooks";
 import Booklist from "./components/Booklist";
 import fantasy from "./data/fantasy.json";
+import horror from "./data/horror.json";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
       <MyNavBar firstText="Home" secondText="About" thirdtText="Browse" />
       <Welcome />
       {/* <AllTheBooks /> */}
-      <Booklist books={fantasy} />
+      <Booklist books={horror} />
     </>
   );
 }
